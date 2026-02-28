@@ -1,0 +1,40 @@
+{
+  "name": "FAAA-Sound",
+  "displayName": "FAA SOUND",
+  "publisher": "PradeepAwasthi",
+  "version": "0.0.1",
+  "description": "Plays a configurable sound when a terminal command or task exits with a non-zero code.",
+  "keywords": ["FAA-SOUND","sound", "notification", "terminal", "task", "faa","Faa Sound"],
+  "author": "Pradeep Kuamr Awasthi",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pradeep-awasthi/FAA-Sound-Extension"
+  },
+  "bugs": {
+    "url": "https://github.com/pradeep-awasthi/FAA-Sound-Extension/issues"
+  },
+  "homepage": "https://github.com/pradeep-awasthi/FAA-Sound-Extension#readme",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "activationEvents": ["*"],
+  "main": "./extension.js",
+  "categories": ["Other"],
+  "contributes": {
+    "configuration": {
+      "title": "FAA SOUND",
+      "properties": {
+        "faaSound.file": {
+          "type": "string",
+          "default": "faaah.mp3",
+          "description": "Relative path (from workspace root) to the sound file to play on command errors (WAV recommended)."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "package": "npx vsce package",
+    "publish": "npx vsce publish"
+  }
+}
