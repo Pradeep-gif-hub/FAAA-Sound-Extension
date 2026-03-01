@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="alertGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ee5a5a;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="innerGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="60" fill="url(#bgGrad)" stroke="#0f3460" stroke-width="4"/>
+  
+  <!-- Inner ring -->
+  <circle cx="64" cy="64" r="52" fill="none" stroke="#e94560" stroke-width="2" opacity="0.6"/>
+  
+  <!-- Alert beacon (top) -->
+  <circle cx="64" cy="24" r="8" fill="url(#alertGrad)" filter="url(#glow)"/>
+  <circle cx="64" cy="24" r="4" fill="#fff" opacity="0.9"/>
+  
+  <!-- FAA Text -->
+  <text x="64" y="72" font-family="Arial Black, Arial, sans-serif" font-size="32" font-weight="bold" fill="#fff" text-anchor="middle" filter="url(#innerGlow)">FAA</text>
+  
+  <!-- Subtitle -->
+  <text x="64" y="92" font-family="Arial, sans-serif" font-size="8" fill="#e94560" text-anchor="middle" letter-spacing="1">FAILURE ALERT</text>
+  
+  <!-- Sound waves (left) -->
+  <path d="M 20 58 Q 14 64 20 70" fill="none" stroke="#e94560" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+  <path d="M 14 52 Q 4 64 14 76" fill="none" stroke="#e94560" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+  
+  <!-- Sound waves (right) -->
+  <path d="M 108 58 Q 114 64 108 70" fill="none" stroke="#e94560" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+  <path d="M 114 52 Q 124 64 114 76" fill="none" stroke="#e94560" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+  
+  <!-- Bottom accent line -->
+  <line x1="34" y1="104" x2="94" y2="104" stroke="#e94560" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+</svg>

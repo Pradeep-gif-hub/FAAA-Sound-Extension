@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#FF6A00"/>
+      <stop offset="1" stop-color="#FFD100"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="16" fill="#1e1e1e" />
+  <g transform="translate(16,24)">
+    <rect x="0" y="18" width="46" height="38" rx="4" fill="#ffffff" opacity="0.06" />
+    <path d="M6 20 L22 8 L22 58 L6 46 Z" fill="#ffffff"/>
+    <path d="M22 14 L44 32 L44 34 L22 52" fill="url(#g)" opacity="0.95"/>
+    <g transform="translate(58,6)">
+      <circle cx="12" cy="28" r="26" fill="none" stroke="url(#g)" stroke-width="4" opacity="0.9"/>
+      <circle cx="12" cy="28" r="18" fill="none" stroke="url(#g)" stroke-width="3" opacity="0.9"/>
+    </g>
+  </g>
+  <text x="64" y="112" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#FFFFFF" text-anchor="middle">FAA</text>
+</svg>

@@ -1,40 +1,91 @@
 {
   "name": "FAAA-Sound",
-  "displayName": "FAA SOUND",
+  "displayName": "FAA — Failure Alert Assistant",
   "publisher": "PradeepAwasthi",
-  "version": "0.0.1",
-  "description": "Plays a configurable sound when a terminal command or task exits with a non-zero code.",
-  "keywords": ["FAA-SOUND","sound", "notification", "terminal", "task", "faa","Faa Sound"],
-  "author": "Pradeep Kuamr Awasthi",
+  "version": "1.0.2",
+  "description": "Automatically plays an alert sound and shows a notification when terminal failures are detected. Aviation-themed alert system for developers.",
+  "keywords": [
+    "FAA",
+    "failure",
+    "alert",
+    "sound",
+    "notification",
+    "terminal",
+    "error",
+    "build",
+    "debug",
+    "productivity"
+  ],
+  "author": "Pradeep Kumar Awasthi",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pradeep-awasthi/FAA-Sound-Extension"
+    "url": "https://github.com/pradeep-gif-hub/FAA-Sound-Extension"
   },
   "bugs": {
-    "url": "https://github.com/pradeep-awasthi/FAA-Sound-Extension/issues"
+    "url": "https://github.com/pradeep-gif-hub/FAA-Sound-Extension/issues"
   },
-  "homepage": "https://github.com/pradeep-awasthi/FAA-Sound-Extension#readme",
+  "homepage": "https://github.com/pradeep-gif-hub/FAA-Sound-Extension#readme",
+  "icon": "media/faa-logo-128.png",
   "engines": {
     "vscode": "^1.60.0"
   },
-  "activationEvents": ["*"],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./extension.js",
-  "categories": ["Other"],
+  "categories": [
+    "Other",
+    "Visualization"
+  ],
   "contributes": {
     "configuration": {
-      "title": "FAA SOUND",
+      "title": "FAA — Failure Alert Assistant",
       "properties": {
-        "faaSound.file": {
-          "type": "string",
-          "default": "faaah.mp3",
-          "description": "Relative path (from workspace root) to the sound file to play on command errors (WAV recommended)."
+        "faa.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable or disable FAA failure detection."
+        },
+        "faa.cooldownSeconds": {
+          "type": "number",
+          "default": 5,
+          "minimum": 1,
+          "maximum": 60,
+          "description": "Cooldown period (seconds) between consecutive alerts."
+        },
+        "faa.showNotification": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show notification popup when failure is detected."
+        },
+        "faa.playSound": {
+          "type": "boolean",
+          "default": true,
+          "description": "Play alert sound when failure is detected."
         }
       }
-    }
+    },
+    "commands": [
+      {
+        "command": "faa.testAlert",
+        "title": "FAA: Test Alert"
+      },
+      {
+        "command": "faa.toggleEnabled",
+        "title": "FAA: Toggle Enabled"
+      }
+    ]
   },
   "scripts": {
-    "package": "npx vsce package",
-    "publish": "npx vsce publish"
+    "lint": "eslint .",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/vscode": "^1.60.0",
+    "@vscode/vsce": "^2.22.0",
+    "sharp": "^0.34.5"
   }
 }
