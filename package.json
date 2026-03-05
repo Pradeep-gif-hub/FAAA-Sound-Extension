@@ -2,7 +2,7 @@
   "name": "FAAA-Sound",
   "displayName": "FAA — Failure Alert Assistant",
   "publisher": "PradeepAwasthi",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Automatically plays an alert sound and shows a notification when terminal failures are detected. Aviation-themed alert system for developers.",
   "keywords": [
     "FAA",
