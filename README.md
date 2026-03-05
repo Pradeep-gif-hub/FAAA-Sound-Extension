@@ -1,112 +1,68 @@
-# 🚨 FAA — Failure Alert Assistant
+# FAA — Failure Alert Assistant
 
-**Aviation-Themed Terminal Failure Detection for VS Code**
+**Real-time terminal failure detection for VS Code.**
+Sound alerts + notifications whenever errors, exceptions, or build failures occur.
 
-> Never miss a terminal failure again.
-
-🚀 **2000+ installs within 24 hours of publishing on the VS Code Marketplace**
-
-FAA monitors VS Code terminals in real-time and triggers **sound alerts + visual notifications** when errors, exceptions, or build failures are detected.
+[![VS Code](https://img.shields.io/badge/VS%20Code-1.93%2B-blue)](https://code.visualstudio.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 ---
 
-## ✨ Features
+## Features
 
-- 🔊 Automatic sound alerts on failure  
-- 📢 Clean VS Code popup notifications  
-- 🎯 30+ smart failure detection patterns  
-- ⏱️ Configurable cooldown (default: 5 seconds)  
-- 🖥️ Cross-platform (Windows, macOS, Linux)  
-- ⚙️ Fully configurable settings  
-- 🛫 Professional aviation-themed design  
+- **Audio + visual alerts** on terminal failures
+- **34 detection patterns** — errors, exceptions, build failures, permission issues, and more
+- **Cross-platform** — Windows (`winmm`), macOS (`afplay`), Linux (`paplay`/`mpg123`)
+- **Configurable cooldown** to prevent alert fatigue
+- **Zero configuration** — works out of the box
 
----
+## Install
 
-## 📦 Installation
+**Marketplace:** Extensions (`Ctrl+Shift+X`) → search `FAA Failure Alert Assistant` → Install
 
-### From VS Code Marketplace
-1. Open Extensions (`Ctrl + Shift + X`)
-2. Search **FAA Failure Alert Assistant**
-3. Click **Install**
+**Manual:** `code --install-extension FAA-1.0.2.vsix`
 
-### From VSIX
-```bash
-code --install-extension FAA-1.0.0.vsix
-```
+## Commands
 
----
+`Ctrl+Shift+P` →
 
-## ⚙️ Configuration
+| Command | Description |
+|---------|-------------|
+| `FAA: Test Alert` | Trigger a test sound + notification |
+| `FAA: Toggle Enabled` | Enable / disable monitoring |
 
-Search **“FAA”** in VS Code Settings.
+## Settings
 
 | Setting | Default | Description |
-|----------|----------|------------|
-| `faa.enabled` | `true` | Enable/disable monitoring |
-| `faa.cooldownSeconds` | `5` | Delay between alerts |
-| `faa.showNotification` | `true` | Show popup alert |
+|---------|---------|-------------|
+| `faa.enabled` | `true` | Enable monitoring |
+| `faa.cooldownSeconds` | `5` | Min seconds between alerts |
+| `faa.showNotification` | `true` | Show popup notification |
 | `faa.playSound` | `true` | Play alert sound |
 
-Example:
+## How It Works
 
-```json
-{
-  "faa.enabled": true,
-  "faa.cooldownSeconds": 5,
-  "faa.showNotification": true,
-  "faa.playSound": true
-}
-```
+1. Listens to terminal output via `onDidWriteTerminalData`
+2. Strips ANSI escape codes from raw terminal data
+3. Matches cleaned text against failure patterns (regex)
+4. Triggers alert if cooldown has elapsed — plays sound + shows notification
 
----
+## Troubleshooting
 
-## 🎮 Commands
+| Platform | Requirement |
+|----------|-------------|
+| Windows | Built-in (`winmm.dll`) |
+| macOS | Built-in (`afplay`) |
+| Linux | `sudo apt install pulseaudio-utils` or `mpg123` |
 
-Access via Command Palette (`Ctrl + Shift + P`):
+If no sound plays, run `FAA: Test Alert` from the Command Palette and check the Debug Console (`Ctrl+Shift+Y`) for logs prefixed with `FAA:`.
 
-- **FAA: Test Alert** — Trigger a test notification  
-- **FAA: Toggle Enabled** — Enable/Disable monitoring  
+## Author
 
----
+**Pradeep Kumar Awasthi**
+Instrumentation & Control Engineering, Dr. B.R. Ambedkar NIT Jalandhar
+[GitHub](https://github.com/pradeep-gif-hub)
 
-## 🏗 Architecture Overview
+## License
 
-- Terminal Data Listener  
-- Regex Pattern Detection Engine  
-- Cooldown Manager  
-- Cross-Platform Audio Handler  
-- Notification Controller  
-
----
-
-## 🔧 Troubleshooting
-
-**Linux users:**
-```bash
-sudo apt install pulseaudio-utils
-```
-
-**macOS:** Uses built-in `afplay`  
-**Windows:** Ensure system media components are enabled  
-
----
-
-## 👨‍💻 Author
-
-**Pradeep Kumar Awasthi**  
-Instrumentation & Control Engineering  
-Dr. B.R. Ambedkar NIT Jalandhar  
-
-GitHub: https://github.com/pradeep-gif-hub  
-
----
-
-## 📄 License
-
-MIT License  
-
----
-
-⭐ If FAA improves your workflow, consider starring the repository.
-
-**FAA — Because failures shouldn’t go unnoticed.**
+[MIT](LICENSE)
