@@ -1,0 +1,99 @@
+# 🚀 FAA Quick Reference Card
+
+## Open Extension Folder
+```powershell
+code "c:\Users\pawas\OneDrive\Documents\GitHub\FAAA-Sound-Extension"
+```
+
+## Start Debugging
+**Press F5** in VS Code
+
+## Watch Debug Console
+**Ctrl+Shift+Y** in original VS Code window (not the Extension Host)
+
+---
+
+## Test: Manual Alert
+1. **Ctrl+Shift+P** in Extension Host
+2. Type: `FAA: Test Alert`
+3. Should hear beep + see notification + console log
+
+## Test: Terminal Error
+1. **Ctrl+`** to open terminal in Extension Host
+2. Type: `wrong_command`
+3. Press Enter
+4. Should hear beep + see notification + console log
+
+---
+
+## Expected Console Output When Error Occurs
+
+Look for these lines in Debug Console:
+```
+FAA: Terminal output snippet: "..."
+🔴 FAA: Error keyword MATCHED
+🚨 FAA ALERT TRIGGERED
+FAA: Method 1 — Trying native OS audio playback...
+✅ FAA: Native audio playback succeeded
+```
+
+## Success = All Three
+- ✅ Beep sound plays
+- ✅ Red notification appears  
+- ✅ Console shows FAAAlert triggered
+
+---
+
+## Settings to Test
+**Ctrl+,** search for "FAA" in Extension Host:
+
+- `faa.enabled` (true/false) - Master switch
+- `faa.playSound` (true/false) - Audio on/off
+- `faa.showNotification` (true/false) - Popup on/off
+- `faa.cooldownSeconds` (1-60) - Seconds between alerts
+
+---
+
+## Reload Extension
+If extension stops responding:
+**Ctrl+R** in Extension Host to reload
+
+---
+
+## Stop Debugging
+1. Close Extension Host window
+2. Or Ctrl+Shift+F5 in VS Code
+
+---
+
+## One-Off Test: Audio Playback
+```powershell
+cd "c:\Users\pawas\OneDrive\Documents\GitHub\FAAA-Sound-Extension"
+node test_audio_playback.js
+```
+Listen for beeps during tests.
+
+---
+
+## Files You Modified
+- ✅ **extension.js** - Main logic + audio playback
+- ✅ **test_audio_playback.js** - Standalone test utility
+- ✅ **DEBUGGING.md** - Full debugging guide
+- ✅ **DEBUG_CHECKLIST.md** - Detailed checklist
+
+---
+
+## Keyboard Shortcut Summary
+| Action | Shortcut |
+|--------|----------|
+| Start Debug | **F5** |
+| Open Command Palette | **Ctrl+Shift+P** |
+| Open Terminal | **Ctrl+`** |
+| Open Settings | **Ctrl+,** |
+| Open Debug Console | **Ctrl+Shift+Y** |
+| Reload Extension | **Ctrl+R** |
+| Stop Debugging | **Ctrl+Shift+F5** or close window |
+
+---
+
+**Print this and keep it handy while testing!**

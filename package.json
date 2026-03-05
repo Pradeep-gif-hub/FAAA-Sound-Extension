@@ -28,7 +28,7 @@
   "homepage": "https://github.com/pradeep-gif-hub/FAA-Sound-Extension#readme",
   "icon": "media/faa-logo-128.png",
   "engines": {
-    "vscode": "^1.60.0"
+    "vscode": "^1.93.0"
   },
   "activationEvents": [
     "onStartupFinished"
